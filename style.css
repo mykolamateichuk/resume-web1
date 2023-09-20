@@ -20,90 +20,82 @@ header {
     height: var(--header-height);
 
     background-color: #121212;
+    display: grid;
+    grid-template-rows: 50fr 30fr 20fr;
+}
+
+#dropdown-contacts {
+    display: none;
+}
+
+.header-part {
+    width: 100%;
+    height: 100%;
+}
+
+#profile-pic-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
 }
 
 #profile-pic {
-    position: relative;
     width: 10%;
     border-radius: 50%;
-    top: 10%;
-    left: 44.1%;
-    border: 10px solid rgba(255, 255, 255, 0.07);
+    border: 1vw solid rgba(255, 255, 255, 0.07);
 }
 
 #header-text {
-    position: relative;
-    width: 100%;
     text-align: center;
-    top: 10%;
-    line-height: 10px;
 }
 
 #header-text > #name {
-    font-size: calc(30px + 0.390625vw);
-    color: #FFF;
+    font-size: calc(20px + 1vw);
     font-weight: 700;
+    color: #FFF;
+    line-height: 1vw;
 }
 
 #header-text > #role {
-    font-size: calc(15px + 0.390625vw);
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: lighter;
+    font-size: calc(10px + 0.8vw);
+    color:rgba(255, 255, 255, 0.7);
+    line-height: 1vw;
 }
 
 #header-info {
-    position: relative;
-    width: 70%;
-    height: 19%;
-    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    width: 100%;
     display: grid;
     grid-template-columns: 33fr 33fr 33fr;
-    top: 20%;
-    font-size: calc(15px + 0.390625vw);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2vw;
 }
 
 .header-container {
-    display: grid;
-    grid-template-columns: 5fr 95fr;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2%;
 }
 
-.header-info-text {
-    position: relative;
-    height: fit-content;
-    color: rgba(255, 255, 255, 0.70);
-    margin: 0;
-    top: 35%;
-    left: 5%;
+#header-info > #address-container {
+    justify-content: end;
 }
 
-.header-info-icon {
-    position: relative;
-    top: 37%;
+#address-container > #location-pin {
+    width: 1.4vw;
 }
 
-#email-container {
-    grid-template-columns: 10fr 90fr;
+#address-container > #flag {
+    color: #FFF;
 }
 
-#email-container > #email-icon {
-    top: 40%;
-    left: 40%;
+#header-info > #email-container {
+    justify-content: center;
 }
 
-#phone-container {
-    grid-template-columns: 43fr 57fr;
-}
-
-#phone-container > #phone-icon {
-    left: 85%;
-}
-
-#hr {
-    position: relative;
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-    top: 20%;
+#header-info > #phone-container {
+    justify-content: baseline;
 }
 
 #container {
@@ -112,34 +104,90 @@ header {
     height: calc(var(--page-heigth) - var(--header-height));
 }
 
-@media screen and (min-width: 769px) {
-    #print-cv {
-            position: fixed;
-            border-radius: 50%;
-            border: 1px solid black;
+#print-cv {
+    position: fixed;
+    border-radius: 50%;
+    border: 1px solid black;
+
+    --button-width: 5vw;
+    --button-height: calc(100vw * 0.05);
+    width: var(--button-width);
+    height: var(--button-height);
+
+    top: calc(100vh - var(--button-height) - 10px);
+    left: calc(100vw - var(--button-height) - 10px);
+}
+
+@media screen and (max-width: 1024px) {
+    header {
+        grid-template-rows: 60fr 40fr;
+    }
+
+    #profile-pic-container {
+        align-items: end;
+    }
+
+    #profile-pic-container > #profile-pic {
+        width: 15%;
+    }
     
-            --button-width: 5vw;
-            --button-height: calc(100vw * 0.05);
-            width: var(--button-width);
-            height: var(--button-height);
-    
-            top: calc(100vh - var(--button-height) - 10px);
-            left: calc(100vw - var(--button-height) - 10px);
+    #header-info {
+        display: none;
     }
 }
 
 @media screen and (max-width: 768px) {
+    #header-text > #name {
+        font-size: calc(15px + 1vw);
+    }
+
+    #header-text > #role {
+        font-size: calc(10px + 0.8vw);
+    }
+}
+
+@media screen and (max-width: 425px) {
+    header {
+        grid-template-rows: none;
+        grid-template-columns: 50fr 50fr;
+    }
+
+    #profile-pic-container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    #profile-pic-container>#profile-pic {
+        width: 50%;
+    }
+
+    #header-text {
+        text-align: none;
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: center;
+    }
+
+    #header-text>#name {
+        font-size: calc(12px + 0.8vw);
+    }
+    
+    #header-text>#role {
+        font-size: calc(8px + 0.8vw);
+    }
+
     #print-cv {
-            position: fixed;
-            border-radius: 50%;
-            border: 1px solid black;
+        position: fixed;
+        border-radius: 50%;
+        border: 1px solid black;
+
+        --button-width: 10vw;
+        --button-height: calc(100vw * 0.1);
+        width: var(--button-width);
+        height: var(--button-height);
     
-            --button-width: 10vw;
-            --button-height: calc(100vw * 0.1);
-            width: var(--button-width);
-            height: var(--button-height);
-    
-            top: calc(100vh - var(--button-height) - 10px);
-            left: calc(100vw - var(--button-height) - 10px);
-        }
+        top: calc(100vh - var(--button-height) - 10px);
+        left: calc(100vw - var(--button-height) - 10px);
+    }
 }

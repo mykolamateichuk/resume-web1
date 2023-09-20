@@ -10,16 +10,18 @@
 <body>
     <div id="print-cv"></div>
     <header>
-        <img src="images/profile-pic.png" alt="No pic" id="profile-pic" />
-        <div id="header-text">
+        <div id="profile-pic-container" class="header-part">
+            <img src="images/profile-pic.png" alt="No pic" id="profile-pic" />
+        </div>
+        <div id="header-text" class="header-part">
             <p id="name">Mykola Mateichuk</p>
             <p id="role">Backend Engineer</p>
         </div>
-        <div id="hr"></div>
-        <div id="header-info">
+        <div id="header-info" class="header-part">
             <div id="address-container" class="header-container">
                 <img src="images/location-pin.svg" alt="" id="location-pin" class="header-info-icon"/>
                 <p id="address" class="header-info-text">Kyiv, Ukraine</p>
+                <span id="flag">&#127482;&#127462;</span>
             </div>
             <div id="email-container" class="header-container">
                 <img src="images/email-icon.svg" alt="" id="email-icon" class="header-info-icon"/>
@@ -27,7 +29,7 @@
             </div>
             <div id="phone-container" class="header-container">
                 <img src="images/phone-icon.svg" alt="" id="phone-icon" class="header-info-icon"/>
-                <p id="phone" class="header-info-text">+(380)67-916-86-02</p>
+                <p id="phone" class="header-info-text">+(380) 67-916-86-02</p>
             </div>
         </div>
     </header>
